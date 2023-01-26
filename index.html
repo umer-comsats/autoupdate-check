@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
+    Current version <span id="version"></span>
+  </body>
+
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer, shell } = electron;
+
+    ipcRenderer.send("app:getVersion");
+
+    ipcRenderer.on("app:setVersion", (e, version) => {
+        document.getElementById("version").innerText = version;
+    });
+  </script>
+</html>
