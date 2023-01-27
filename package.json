@@ -1,15 +1,35 @@
 {
   "name": "autoupdatertest",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "repository": "https://github.com/umer-comsats/autoupdate-check",
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^22.1.0"
+    "electron": "^22.1.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "com.bxtrack.sync",
+    "productName": "Roadsoft TEST",
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^5.3.0"
   }
 }

@@ -10,6 +10,7 @@
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>.
     Current version <span id="version"></span>
+    <div id="info"></div>
   </body>
 
   <script>
@@ -20,6 +21,14 @@
 
     ipcRenderer.on("app:setVersion", (e, version) => {
         document.getElementById("version").innerText = version;
+    });
+
+    ipcRenderer.on("app:updateAvailable", (e, version) => {
+        document.getElementById("info").innerHTML = "New version available: ";
+    });
+
+    ipcRenderer.on("app:updateNotAvailable", (e, version) => {
+        document.getElementById("info").innerHTML = "No update available";
     });
   </script>
 </html>
