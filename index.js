@@ -32,6 +32,7 @@ autoUpdater.on('error', () => {
     log.info('error');
 })
 
-autoUpdater.on('update-downloaded', () => {
+autoUpdater.on('update-downloaded', (message) => {
     log.info('update-downloaded');
+    log.error(message);
 })
