@@ -18,21 +18,24 @@ app.on('ready', () => {
 
 autoUpdater.on('update-available', () => {
     log.info('update-available');
+    autoUpdater.downloadUpdate();
 });
 
 autoUpdater.on('checking-for-update', () => {
     log.info('checking-for-update');
 });
 
-autoUpdater.on('download-progress', () => {
+autoUpdater.on('download-progress', (progress) => {
     log.info('download-progress');
+    log.info(progress);
 })
 
-autoUpdater.on('error', () => {
+autoUpdater.on('error', (message) => {
     log.info('error');
+    log.info(typeof message);
+    log.info(message);
 })
 
-autoUpdater.on('update-downloaded', (message) => {
+autoUpdater.on('update-downloaded', () => {
     log.info('update-downloaded');
-    log.info(typeof message);
 })
