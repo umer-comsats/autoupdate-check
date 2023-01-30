@@ -4,7 +4,7 @@ const log = require('electron-log');
 const path = require('path');
 
 log.transports.file.resolvePath = () => path.join("D:\projects\js-electron\autoUpdaterTest", 'logs/main.log');
-
+log.info("Application version"+app.getVersion());
 let win;
 
 function createWindow() {
