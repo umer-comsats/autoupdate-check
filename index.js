@@ -28,6 +28,10 @@ autoUpdater.on('download-progress', () => {
     log.info('download-progress');
 })
 
+autoUpdater.on('error', () => {
+    log.info('error');
+})
+
 autoUpdater.on('update-downloaded', () => {
     log.info('update-downloaded');
 })
