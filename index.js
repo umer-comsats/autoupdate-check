@@ -34,5 +34,5 @@ autoUpdater.on('error', () => {
 
 autoUpdater.on('update-downloaded', (message) => {
     log.info('update-downloaded');
-    log.error(message);
+    log.info(typeof message);
 })
